@@ -25,9 +25,9 @@ public class Solution {
                 str[newLength-2] = '2';
                 str[newLength-3] = '%';
                 newLength = newLength-3;
-      } else {
-        str[--newLength] = str[i];
-      }
+            } else {
+                str[--newLength] = str[i];
+            }
+        }
     }
-  }
 }
