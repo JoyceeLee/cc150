@@ -9,7 +9,60 @@
  * Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
  */
  
- 
+class Node {
+    int val;
+    Node above;
+    Node below;
+    public Node(int v) {
+        val = v;
+        above = null;
+        below = null;
+    }
+}
+
+
+class Stack {
+    private int capacity;
+    public Node top, bottom;
+    public int size = 0;
+    
+    public Stack(int capacity) {
+        this.capacity = capacity;
+    }
+    public boolean isFull() {
+        return capacity==size;
+    }
+    public void join(Node above, Node below) {
+        if(below != null) below.above = above;
+        if(above != null) above.below = below;
+    }
+    public boolean push(int v) {
+        if(size>=capacity) return false;
+        Node newNode = new Node(v);
+        if(size==1) bottom = newNode;
+        join(newNode top);
+        top = newNode;
+        size++;
+        return true;
+    }
+    public int pop() {
+        Node t = top;
+        top = top.below;
+        size--;
+        return t.val;
+    }
+    public boolean isEmpty() {
+        return size==0;
+    }
+    public int removeBottom() {
+        Node b = bottom;
+        bottom = bottom.above;
+        if(bottom!=null) bottom.below = null;
+        size--;
+        return b.val;
+    }
+}
+
 
 public class SetOfStacks {
     ArrayList<Stack> stacks = new ArrayList<Stack>();
@@ -59,47 +112,5 @@ public class SetOfStacks {
             stack.push(v);
         }
         return removedItem;
-    }
-}
- 
-class Stack {
-    private int capacity;
-    public Node top, bottom;
-    public int size = 0;
-    
-    public Stack(int capacity) {
-        this.capacity = capacity;
-    }
-    public boolean isFull() {
-        return capacity==size;
-    }
-    public void join(Node above, Node below) {
-        if(below != null) below.above = above;
-        if(above != null) above.below = below;
-    }
-    public boolean push(int v) {
-        if(size>=capacity) return false;
-        Node newNode = new Node(v);
-        if(size==1) bottom = newNode;
-        join(newNode top);
-        top = newNode;
-        size++;
-        return true;
-    }
-    public int pop() {
-        Node t = top;
-        top = top.below;
-        size--;
-        return t.val;
-    }
-    public boolean isEmpty() {
-        return size==0;
-    }
-    public int removeBottom() {
-        Node b = bottom;
-        bottom = bottom.above;
-        if(bottom!=null) bottom.below = null;
-        size--;
-        return b.val;
     }
 }
