@@ -39,7 +39,7 @@ class Stack {
     public boolean push(int v) {
         if(size>=capacity) return false;
         Node newNode = new Node(v);
-        if(size==1) bottom = newNode;
+        if(size==0) bottom = newNode;
         join(newNode top);
         top = newNode;
         size++;
@@ -48,6 +48,8 @@ class Stack {
     public int pop() {
         Node t = top;
         top = top.below;
+        if(top!=null) top.above = null;
+        t.below = null;
         size--;
         return t.val;
     }
