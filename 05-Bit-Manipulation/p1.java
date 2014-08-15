@@ -5,7 +5,7 @@
  * That is,if M= 10011, you can assume that there are at least 5 bits between j and i.
  * You would not, for example, have j=3 and i=2,because M could not fully fit between bit 3 and bit 2.
  * EXAMPLE :
- * Input : N = 1000000000, M = 10011, i=2, j=6
+ * Input : N = 10000000000, M = 10011, i=2, j=6
  * Output: N = 10001001100
  */
 
