@@ -13,7 +13,7 @@ public class Solution {
 			c0++;
 			c>>=1;
 		}
-		while((c&1)==1) {
+		while((c&1)==1 && (c!=0)) {
 			c1++;
 			c>>=1;
 		}
