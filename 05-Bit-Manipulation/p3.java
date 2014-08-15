@@ -38,8 +38,9 @@ public class Solution {
 			c>>=1;
 			c0++;
 		}
+		allOnes = ~0;
 		int p = c0+c1;
-		n &= (1<<(p+1));
+		n &= (allOnes<<(p+1));
 		int mask = (1<<(c1+1))-1;
 		mask = mask << (c0-1);
 		n |= mask;
