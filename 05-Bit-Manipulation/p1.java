@@ -6,6 +6,7 @@
  * You would not, for example, have j=3 and i=2,because M could not fully fit between bit 3 and bit 2.
  * EXAMPLE :
  * Input : N = 1000000000, M = 10011, i=2, j=6
+ * Output: N = 10001001100
  */
 
 public class Solution {
